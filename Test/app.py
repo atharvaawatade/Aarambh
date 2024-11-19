@@ -4,25 +4,9 @@ from collections import defaultdict, deque
 from pytz import utc
 from ultralytics import YOLO
 import time
-import os
-import google.generativeai as genai
+from openai import OpenAI
 
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-
-generation_config = {
-  "temperature": 1,
-  "top_p": 0.95,
-  "top_k": 40,
-  "max_output_tokens": 8192,
-  "response_mime_type": "text/plain",
-}
-
-model = genai.GenerativeModel(
-  model_name="gemini-1.5-pro",
-  generation_config=generation_config,
-)
-
-chat_session = model.start_chat(history=[])
+client = OpenAI()
 
 yolo_model = YOLO("yolo11n.pt")
 video_path = "C:/Users/Asus/Desktop/Carla/test1.mp4"
@@ -42,6 +26,21 @@ camera_height = 1.5
 time_to_brake_threshold = 2.0
 fcw_confidence_threshold = 0.7
 false_positive_ratio = 0.5
+
+def get_gpt4_assessment(scenario_data):
+    try:
+        messages = [
+            {"role": "system", "content": "You are an advanced driving assistance system analyzing real-time driving scenarios."},
+            {"role": "user", "content": f"Analyze this driving scenario: {scenario_data}"}
+        ]
+        
+        completion = client.chat.completions.create(
+            model="gpt-4",
+            messages=messages
+        )
+        return completion.choices[0].message.content
+    except Exception as e:
+        return f"AI assessment unavailable: {str(e)}"
 
 def calculate_distance(point1, point2):
     return np.sqrt((point1[0] - point2[0])*2 + (point1[1] - point2[1])*2)
@@ -66,20 +65,34 @@ def predict_forward_collision(track, vehicle_speeds, vehicle_distances, track_id
         distance = vehicle_distances[track_id]
         speed_diff = vehicle_speeds[track_id][0] - vehicle_speeds[track_id][1]
         confidence = calculate_confidence(distance, speed_diff)
+        
+        scenario_data = {
+            "distance": distance,
+            "speed_difference": speed_diff,
+            "confidence": confidence
+        }
+        
+        ai_assessment = get_gpt4_assessment(str(scenario_data))
+        
         if confidence > fcw_confidence_threshold:
             if distance < fcw_danger_distance:
-                return "Danger", confidence
+                return "Danger", confidence, ai_assessment
             elif distance < fcw_warning_distance:
-                return "Warning", confidence
-    return None, 0
+                return "Warning", confidence, ai_assessment
+    return None, 0, ""
 
 def predict_lane_departure(track, lane_width):
     if len(track) > 1:
         x1, y1 = track[-1]
         x2, y2 = track[-2]
         if abs(x2 - x1) > lane_width * ldw_threshold:
-            return "Warning", 1.0
-    return None, 0
+            scenario_data = {
+                "lateral_movement": abs(x2 - x1),
+                "lane_width": lane_width
+            }
+            ai_assessment = get_gpt4_assessment(str(scenario_data))
+            return "Warning", 1.0, ai_assessment
+    return None, 0, ""
 
 def adjust_fcw_threshold(events):
     true_positives = sum(1 for event in events if event == "TP")
@@ -97,19 +110,32 @@ def display_adas_warnings(frame, track_ids, vehicle_speeds, vehicle_distances, f
     for track_id in track_ids:
         track = track_history[track_id]
         
-        fcw_status, fcw_confidence = predict_forward_collision(track, vehicle_speeds, vehicle_distances, track_id, fcw_warning_distance, fcw_danger_distance)
+        fcw_status, fcw_confidence, fcw_ai_assessment = predict_forward_collision(
+            track, vehicle_speeds, vehicle_distances, track_id, 
+            fcw_warning_distance, fcw_danger_distance
+        )
+        
         if fcw_status == "Warning":
-            cv2.putText(frame, "Forward Collision Warning!", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+            cv2.putText(frame, "Forward Collision Warning!", (10, 50), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+            cv2.putText(frame, f"AI: {fcw_ai_assessment[:50]}...", (10, 100), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
             recent_events.append("TP")
         elif fcw_status == "Danger":
-            cv2.putText(frame, "Forward Collision Danger!", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+            cv2.putText(frame, "Forward Collision Danger!", (10, 50), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+            cv2.putText(frame, f"AI: {fcw_ai_assessment[:50]}...", (10, 100), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
             recent_events.append("TP")
         else:
             recent_events.append("FP")
         
-        ldw_status, ldw_confidence = predict_lane_departure(track, lane_width)
+        ldw_status, ldw_confidence, ldw_ai_assessment = predict_lane_departure(track, lane_width)
         if ldw_status == "Warning":
-            cv2.putText(frame, "Lane Departure Warning!", (10, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
+            cv2.putText(frame, "Lane Departure Warning!", (10, 150), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
+            cv2.putText(frame, f"AI: {ldw_ai_assessment[:50]}...", (10, 200), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 0), 1)
             recent_events.append("LDW")
         
         if len(track) > 1:
@@ -125,9 +151,11 @@ def display_adas_warnings(frame, track_ids, vehicle_speeds, vehicle_distances, f
                 elif distance < fcw_warning_distance:
                     color = (255, 255, 0)
                 cv2.line(frame, start_point, end_point, color, 2)
-                cv2.putText(frame, f"{distance:.2f}m", (end_point[0], end_point[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
+                cv2.putText(frame, f"{distance:.2f}m", (end_point[0], end_point[1] - 10), 
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
                 speed = vehicle_speeds[track_id][0]
-                cv2.putText(frame, f"{speed:.2f} km/h", (end_point[0], end_point[1] - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
+                cv2.putText(frame, f"{speed:.2f} km/h", (end_point[0], end_point[1] - 30), 
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
     
     fcw_confidence_threshold = adjust_fcw_threshold(recent_events)
 
@@ -164,7 +192,8 @@ def main():
                     points = np.array(track, np.int32).reshape((-1, 1, 2))
                     cv2.polylines(annotated_frame, [points], isClosed=False, color=(230, 230, 230), thickness=2)
 
-                display_adas_warnings(annotated_frame, track_ids, vehicle_speeds, vehicle_distances, fcw_warning_distance, fcw_danger_distance, lane_width=3.5)
+                display_adas_warnings(annotated_frame, track_ids, vehicle_speeds, vehicle_distances, 
+                                   fcw_warning_distance, fcw_danger_distance, lane_width=3.5)
                 cv2.imshow("ADAS Demonstration", annotated_frame)
             
             if cv2.waitKey(1) & 0xFF == ord("q"):
