@@ -55,6 +55,9 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
 - **Data Processing**: NumPy
 - **Visualization**: Custom CV2 overlays
 
+![Untitled diagram-2024-11-19-050515](https://github.com/user-attachments/assets/f6a52f52-d97a-40bf-b854-eebcea863825)
+
+
 ## 📊 Key Performance Indicators (KPIs)
 
 - **Development Time Reduction**: 60% faster than traditional methods
