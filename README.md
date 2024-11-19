@@ -15,6 +15,9 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
 
 ![image](https://github.com/user-attachments/assets/f89a8511-801a-42c0-8e60-3f8344a4c86e)
 
+![image](https://github.com/user-attachments/assets/a7621259-c2b1-47b4-94b1-bc60868a14a8)
+
+
 
 
 ### 🌟 Key Features
