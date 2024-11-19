@@ -122,24 +122,24 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
     <tr>
       <td align="center">
         <a href="https://github.com/atharvaawatade">
-          <img src="![image](https://github.com/user-attachments/assets/dbeffa37-317c-4b8b-95bf-d82764e4f1fc)" width="100px;" alt="Contributor 1"/>
-          <br />
-          <sub><b>Team Lead</b></sub>
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/Chhavimohitkar65">
-          <img src="![image](https://github.com/user-attachments/assets/3ada957b-1b4c-461b-b320-8cbd00d0b129)" width="100px;" alt="Contributor 2"/>
-          <br />
-          <sub><b>ML Engineer</b></sub>
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://github.com/devashish8282">
-          <img src="![image](https://github.com/user-attachments/assets/459ce536-140d-49e6-ba7a-5f3178b4e085)" width="100px;" alt="Contributor 3"/>
-          <br />
-          <sub><b>ADAS Specialist</b></sub>
-        </a>
+       <img src="https://github.com/user-attachments/assets/dbeffa37-317c-4b8b-95bf-d82764e4f1fc" width="100px;" alt="Contributor 1"/>
+       <br />
+    <sub><b>Team Lead</b></sub>
+  </a>
+</td>
+<td align="center">
+  <a href="https://github.com/Chhavimohitkar65">
+    <img src="https://github.com/user-attachments/assets/3ada957b-1b4c-461b-b320-8cbd00d0b129" width="100px;" alt="Contributor 2"/>
+    <br />
+    <sub><b>ML Engineer</b></sub>
+  </a>
+</td>
+<td align="center">
+  <a href="https://github.com/devashish8282">
+    <img src="https://github.com/user-attachments/assets/459ce536-140d-49e6-ba7a-5f3178b4e085" width="100px;" alt="Contributor 3"/>
+    <br />
+    <sub><b>ADAS Specialist</b></sub>
+  </a>
       </td>
     </tr>
   </table>
