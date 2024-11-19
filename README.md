@@ -16,7 +16,6 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
 - **GenAI-Powered Development**: Utilizing GPT-4 for adaptive parameter optimization and scenario analysis
 - **Real-time Object Detection**: YOLOv5 integration for accurate vehicle detection
 - **Advanced Collision Prediction**: Sophisticated trajectory modeling and risk assessment
-- **Weather-Adaptive System**: Dynamic parameter adjustment based on environmental conditions
 - **Comprehensive Logging**: Detailed event tracking and performance metrics
 - **CARLA Integration**: Full simulation environment support for testing and validation
 
@@ -51,7 +50,7 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
 
 - **Development Time Reduction**: 60% faster than traditional methods
 - **Code Quality**: MISRA-C compliant
-- **Detection Accuracy**: 95%+ in various weather conditions
+- **Detection Accuracy**: 95%+ 
 - **Response Time**: <100ms average latency
 - **False Positive Rate**: <0.5%
 - **Test Coverage**: >90%
@@ -86,13 +85,9 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
    - Complex intersection management
    - Stop-and-go traffic handling
 
-3. **Adverse Weather**
-   - Rain and fog adaptation
-   - Reduced visibility compensation
-   - Dynamic threshold adjustment
-
 ## 📈 Future Scope
 
+- Adverse Weather
 - Integration with additional ADAS features
 - Enhanced machine learning models
 - Real-world testing implementation
