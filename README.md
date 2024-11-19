@@ -5,7 +5,7 @@
 [![CARLA](https://img.shields.io/badge/CARLA-0.9.13-blue.svg)](https://carla.org/)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-green.svg)](https://openai.com/)
-[![YOLOv5](https://img.shields.io/badge/YOLOv5-6.0-yellow.svg)](https://github.com/ultralytics/yolov5)
+[![YOLO11n](https://img.shields.io/badge/YOLOv11n-6.0-yellow.svg)](https://github.com/ultralytics/yolov5)
 
 ## 🎯 Project Overview
 
@@ -23,7 +23,7 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
 ### 🌟 Key Features
 
 - **GenAI-Powered Development**: Utilizing GPT-4 for adaptive parameter optimization and scenario analysis
-- **Real-time Object Detection**: YOLOv5 integration for accurate vehicle detection
+- **Real-time Object Detection**: YOLO11n integration for accurate vehicle detection
 - **Advanced Collision Prediction**: Sophisticated trajectory modeling and risk assessment
 - **Comprehensive Logging**: Detailed event tracking and performance metrics
 - **CARLA Integration**: Full simulation environment support for testing and validation
@@ -48,7 +48,7 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
 ## 🛠️ Technology Stack
 
 - **Simulation Environment**: CARLA
-- **Object Detection**: YOLOv5
+- **Object Detection**: YOLO11n
 - **Generative AI**: OpenAI GPT-4
 - **Computer Vision**: OpenCV
 - **Deep Learning**: PyTorch
