@@ -7,7 +7,7 @@ import time
 import openai
 
 # Configure the OpenAI API key
-GEMINI_API_KEY = "AIzaSyB0gE_I7TNE4ujIUf3oclQiNiaGZ3U5qjw"
+GEMINI_API_KEY = " "
 openai.api_key = GEMINI_API_KEY
 
 # Load the YOLO11 object detection model
