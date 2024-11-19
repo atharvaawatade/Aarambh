@@ -82,7 +82,7 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
 
 3. **Run the System**
    ```bash
-   python main.py
+   python app.py
    ```
 
 ## 💡 Use Cases
