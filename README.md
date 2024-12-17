@@ -109,19 +109,8 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
 
 ## 🌟 What Sets Us Apart
 
-1. **Innovative GenAI Integration**
-   - First-of-its-kind implementation using GPT-4 for real-time parameter optimization
-   - Unique hybrid approach combining traditional CV with generative AI
-
-2. **Comprehensive Safety Features**
-   - Multi-layered collision detection
-   - Advanced trajectory prediction
-   - Weather-adaptive parameters
-
-3. **Production-Ready Architecture**
-   - Scalable design
-   - Automotive-grade safety compliance
-   - Comprehensive testing framework
+![User installs Iron Security Extension (4)](https://github.com/user-attachments/assets/8ec88915-db95-4932-9628-6aa9e1f94e36)
+ 
 
 ## 🤝 Contributors
 
