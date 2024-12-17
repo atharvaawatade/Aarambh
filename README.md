@@ -8,6 +8,8 @@
 [![YOLO11n](https://img.shields.io/badge/YOLOv11n-6.0-yellow.svg)](https://github.com/ultralytics/ultralytics)
 
 ## Demo : https://www.youtube.com/watch?v=Kr_COKkAAYs
+![WhatsApp Image 2024-12-17 at 14 47 08_69cf2468](https://github.com/user-attachments/assets/3a5e055f-c6b4-4cad-a6e9-bf2a9cb550da)
+
 
 ## 🎯 Project Overview
 
