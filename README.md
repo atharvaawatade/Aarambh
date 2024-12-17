@@ -7,6 +7,8 @@
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-green.svg)](https://openai.com/)
 [![YOLO11n](https://img.shields.io/badge/YOLOv11n-6.0-yellow.svg)](https://github.com/ultralytics/ultralytics)
 
+##Demo : https://www.youtube.com/watch?v=Kr_COKkAAYs
+
 ## 🎯 Project Overview
 
 DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverages Generative AI to accelerate the development and validation of Forward Collision Warning (FCW) features. Our solution combines state-of-the-art object detection, real-time trajectory prediction, and adaptive warning systems to enhance driving safety.
