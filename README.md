@@ -8,6 +8,11 @@
 [![YOLO11n](https://img.shields.io/badge/YOLOv11n-6.0-yellow.svg)](https://github.com/ultralytics/ultralytics)
 
 ## Demo : https://www.youtube.com/watch?v=Kr_COKkAAYs
+## 🌟 What Sets Us Apart
+
+![User installs Iron Security Extension (4)](https://github.com/user-attachments/assets/8ec88915-db95-4932-9628-6aa9e1f94e36)
+
+
 ![WhatsApp Image 2024-12-17 at 14 47 08_69cf2468](https://github.com/user-attachments/assets/3a5e055f-c6b4-4cad-a6e9-bf2a9cb550da)
 
 
@@ -107,10 +112,6 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
 - Extended weather condition support
 - V2X communication integration
 
-## 🌟 What Sets Us Apart
-
-![User installs Iron Security Extension (4)](https://github.com/user-attachments/assets/8ec88915-db95-4932-9628-6aa9e1f94e36)
- 
 
 ## 🤝 Contributors
 
