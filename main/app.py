@@ -23,7 +23,7 @@ from pathlib import Path
 
 
 # YOLO setup for model
-YOLO_MODEL = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
+YOLO_MODEL = torch.hub.load('ultralytics/ultralytics', 'yolov11n', pretrained=True)
 YOLO_MODEL.eval()
 
 # ADAS parameters 
