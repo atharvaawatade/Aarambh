@@ -47,15 +47,9 @@ DriveWise is an innovative Advanced Driver Assistance System (ADAS) that leverag
 
 ## 🛠️ Technology Stack
 
-- **Simulation Environment**: CARLA
-- **Object Detection**: YOLO11n
-- **Generative AI**: OpenAI GPT-4
-- **Computer Vision**: OpenCV
-- **Deep Learning**: PyTorch
-- **Data Processing**: NumPy
-- **Visualization**: Custom CV2 overlays
 
-![Uploading User installs Iron Security Extension (3).png…]()
+![User installs Iron Security Extension (3)](https://github.com/user-attachments/assets/ffddef87-f2ac-440e-b6ec-e35f0f3b3f45)
+
 
 
 ![Untitled diagram-2024-11-19-050725](https://github.com/user-attachments/assets/eabfee23-f8ce-4262-9204-c59d95731a06)
