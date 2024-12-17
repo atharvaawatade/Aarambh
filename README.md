@@ -5,7 +5,7 @@
 [![CARLA](https://img.shields.io/badge/CARLA-0.9.13-blue.svg)](https://carla.org/)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4-green.svg)](https://openai.com/)
-[![YOLO11n](https://img.shields.io/badge/YOLOv11n-6.0-yellow.svg)](https://github.com/ultralytics/yolov5)
+[![YOLO11n](https://img.shields.io/badge/YOLOv11n-6.0-yellow.svg)](https://github.com/ultralytics/ultralytics)
 
 ## 🎯 Project Overview
 
